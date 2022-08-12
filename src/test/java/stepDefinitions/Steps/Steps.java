@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pageObjects.TestPage;
 
+import java.util.List;
+
 public class Steps {
 
     public WebDriver driver;
@@ -38,12 +40,12 @@ public class Steps {
     }
 
     @Then("try to book the skylift")
-    public void tryToBookTheSkylift() {
+    public void tryToBookTheSkylift() throws InterruptedException {
         lp.book();
     }
 
     @Then("Scrape all cards title price link")
-    public void scrapeAllCardsTitlePriceLink() {
+    public void scrapeAllCardsTitlePriceLink() throws InterruptedException {
         lp.scrapeCards();
     }
 }
