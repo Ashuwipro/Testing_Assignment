@@ -45,7 +45,7 @@ public class Steps {
     }
 
     @Then("Scrape all cards title price link")
-    public void scrapeAllCardsTitlePriceLink() throws InterruptedException {
+    public void scrapeAllCardsTitlePriceLink() {
         lp.scrapeCards();
     }
 }

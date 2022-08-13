@@ -3,6 +3,7 @@ package pageObjects;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.ArrayList;
@@ -78,7 +79,19 @@ public class TestPage {
         //Login requires to enter data and OTP on mail so cannot automate that right now.
     }
 
-    public void scrapeCards() throws InterruptedException {
-
+    public void scrapeCards() {
+        List<String> priceList=new ArrayList<>();
+        List<String> titleList=new ArrayList<>();
+        List<WebElement> elements=ldriver.findElements(By.xpath("//span[contains(@class, 'space-x-1 font-serif text-lg font-semibold leading-7 -tracking-wider text-secondary')]//span[2]"));
+        for(WebElement element: elements){
+            priceList.add(element.getText());
+        }
+        elements=ldriver.findElements(By.xpath("//div//p[contains(@class, 'text-secondary-200')]"));
+        for(WebElement element: elements){
+            titleList.add(element.getText());
+        }
+        for(int i=0;i<priceList.size();i++){
+            System.out.println(titleList.get(i)+" : "+ priceList.get(i));
+        }
     }
 }
